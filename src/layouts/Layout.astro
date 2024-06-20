@@ -15,37 +15,288 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<!-- Link to Tailwind CSS -->
+		<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 	</head>
-	<body>
-		<slot />
+	<body class="bg-cover bg-center" style="background-image: url('https://i.pinimg.com/originals/27/4d/ce/274dce24f60a45e28a6e3229f3100182.gif');">
+		<div id="app" class="relative h-screen">
+			<header class="[grid-area:taskbar] min-h-[50px] bg-white bg-opacity-80 backdrop-blur-md border-t border-gray-300 rounded-t-lg flex justify-center items-center space-x-4 px-4">
+				<!-- App Icons -->
+				<div class="flex space-x-4">
+					<button class="focus:outline-none">
+						<img src="https://cdn-icons-png.flaticon.com/256/668/668290.png" alt="Safari" class="w-6 h-6">
+					</button>
+					<!-- Botón de Documentos -->
+					<button class="focus:outline-none flex items-center">
+						<img src="https://cdn-icons-png.flaticon.com/256/10473/10473367.png" alt="Documentos" class="w-6 h-6 mr-2">
+					  </button>
+					  <!-- Botón de Word -->
+					  <button class="focus:outline-none flex items-center">
+						<img src="https://i.pinimg.com/564x/83/fe/22/83fe2289e31398d96e8e6ed9d603c72f.jpg" alt="Word" class="w-6 h-6 mr-2">
+					  </button>
+					  <!-- Botón de Excel -->
+					  <button class="focus:outline-none flex items-center">
+						<img src="https://cdn-icons-png.flaticon.com/256/732/732220.png" alt="Excel" class="w-6 h-6 mr-2">
+					  </button>
+					  <!-- Botón de PowerPoint -->
+					  <button class="focus:outline-none flex items-center">
+						<img src="https://cdn-icons-png.flaticon.com/256/732/732218.png" alt="PowerPoint" class="w-6 h-6 mr-2">
+					  </button>
+					  <!-- Botón de Fotos -->
+					  <button class="focus:outline-none flex items-center">
+						<img src="https://i.pinimg.com/564x/2e/6c/3f/2e6c3f56d41d284b0c477ebdce6997df.jpg" alt="Fotos" class="w-6 h-6 mr-2">
+					  </button>
+					  <!-- Botón de App Store -->
+					  <button class="focus:outline-none flex items-center">
+						<img src="https://i.pinimg.com/564x/f4/9d/f2/f49df2d08075efa44b18cb7dadcfe331.jpg" alt="App Store" class="w-6 h-6 mr-2">
+					  </button>
+					  <!-- Botón de Configuración -->
+					  <button class="focus:outline-none flex items-center">
+						<img src="https://i.pinimg.com/564x/52/e3/4c/52e34cdb514c7c65600eb18604a3903c.jpg" alt="Configuración" class="w-6 h-6 mr-2">
+					  </button>
+					  <!-- Botón de Instagram -->
+					  <button class="focus:outline-none flex items-center">
+						<img src="https://i.pinimg.com/564x/43/85/a5/4385a5479214954fa9fab6f1a778623f.jpg" alt="Configuración" class="w-6 h-6 mr-2">
+					  </button>
+					  <!-- Botón de Camara -->
+					  <button class="focus:outline-none flex items-center">
+						<img src="https://i.pinimg.com/564x/53/f0/a7/53f0a7e3c330f5abbdb7401ae3eda3db.jpg" alt="Configuración" class="w-6 h-6 mr-2">
+					  </button>
+					  <!-- Botón de Gmail -->
+					  <button class="focus:outline-none flex items-center">
+						<img src="https://i.pinimg.com/564x/a7/d2/a4/a7d2a4d8528e958bcdf8602042c1123d.jpg" alt="Configuración" class="w-6 h-6 mr-2">
+					  </button>
+					  <!-- Botón de Pinterest -->
+					  <button class="focus:outline-none flex items-center">
+						<img src="https://i.pinimg.com/564x/ef/5c/95/ef5c95ad17a8a482b6dde826d81343f3.jpg" alt="Configuración" class="w-6 h-6 mr-2">
+					  </button>
+					  <!-- Otros iconos -->
+
+				</div>
+			</header>
+			<main class="[grid-area:main] bg-red-00"></main>
+			<slot />
+		</div>
 	</body>
 </html>
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
+
+<style>
+	#app {
+		display: grid;
+		grid-template-areas:
+			"main main main"
+			"taskbar taskbar taskbar";
+		grid-template-rows: 1fr auto;
 	}
-	html {
+	body {
 		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
+		background-color: #000; /* Fallback background color */
 	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
+	header {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		padding: 0 1rem;
 	}
 </style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escritorio</title>
+    <style>
+        .icon-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .icon-button {
+            border: none;
+            background: none;
+            padding: 0;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .icon {
+            width: 20px;
+            height: auto;
+            margin-bottom: 10px;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+    <div class="icon-container">
+        <!-- Botón de Internet -->
+        <button class="icon-button">
+            <img class="icon" src="https://cdn-icons-png.flaticon.com/256/72/72264.png">
+        </button>
+
+        <!-- Botón de Bluetooth -->
+        <button class="icon-button">
+            <img class="icon" src="https://cdn-icons-png.flaticon.com/256/4555/4555241.png">
+        </button>
+
+        <!-- Botón de Batería -->
+        <button class="icon-button">
+            <img class="icon" src="https://cdn-icons-png.flaticon.com/256/664/664886.png">
+        </button>
+		<!-- Botón de Buscar -->
+        <button class="icon-button">
+            <img class="icon" src="https://cdn-icons-png.flaticon.com/256/16/16492.png">
+        </button>
+    </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escritorio</title>
+    <style>
+        .datetime-container {
+            position: fixed;
+            top: 3px;
+            right: 10px;
+            display: flex;
+            align-items: center;
+            font-size: 15px;
+            color: #000000;
+        }
+
+        .datetime-button {
+            background-color: transparent; /* Fondo transparente */
+            border: none; /* Sin borde */
+            padding: 5px 10px;
+            margin-right: 5px;
+            cursor: pointer;
+            font-size: inherit;
+            color: #000000; /* Color del texto */
+        }
+
+        .datetime-button:last-child {
+            margin-right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="datetime-container">
+        <button class="datetime-button" id="date">June 9, 2024</button>
+        <div class="datetime-separator">-</div>
+        <button class="datetime-button" id="time">12:00 PM</button>
+    </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escritorio</title>
+    <style>
+        .datetime-container {
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .datetime-button {
+            background-color: transparent;
+            border: none;
+            padding: 5px 10px;
+            margin-right: 5px;
+            cursor: pointer;
+            font-size: inherit;
+            color: #333;
+        }
+
+        .datetime-button:last-child {
+            margin-right: 0;
+        }
+
+        .apps-container {
+            position: fixed;
+            top: 150px;
+            left: 80px; /* Más a la izquierda */
+            display: flex;
+            gap: 10px;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .app-icon {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: inherit;
+            color: #333;
+            text-align: center;
+        }
+
+        .app-icon img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .app-icon span {
+            display: none;
+        }
+
+        .widget-container {
+            position: fixed;
+            top: 300px;
+            left: 80px; /* Más a la izquierda */
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .widget {
+            width: 300px;
+            height: 200px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="apps-container">
+        <button class="app-icon">
+            <img src="https://i.pinimg.com/564x/93/46/53/934653214719cf630e0f5cf9c746b364.jpg" alt="App 1">
+            <span>Spotify</span>
+        </button>
+        <button class="app-icon">
+            <img src="https://i.pinimg.com/564x/72/a0/50/72a0500ff35991d147a6b48e4bffc721.jpg" alt="App 2">
+            <span>Netflix</span>
+        </button>
+        <button class="app-icon">
+            <img src="https://i.pinimg.com/564x/b3/66/a1/b366a1aa4200bce5d3c5a14e661cba8a.jpg" alt="App 3">
+            <span>Notas</span>
+        </button>
+		<button class="app-icon">
+            <img src="https://i.pinimg.com/564x/b7/a2/1a/b7a21a2907834297bc7f76a4e811ddb0.jpg" alt="App 4">
+            <span>Clima</span>
+        </button>
+        <!-- Agrega más íconos de aplicaciones  -->
+    </div>
+
+    <div class="widget-container">
+        <!-- Spotify Widget -->
+        <div class="widget">
+            <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M" width="100%" height="100%" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        </div>
+    </div>
+</body>
+</html>
